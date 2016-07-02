@@ -1,4 +1,20 @@
-/*! toggle-view.css © yamoo9.net, 2016 */
+/*! toggle-view.css Â© yamoo9.net, 2016 */
+
+body {
+  margin: 5%;
+}
+
+/**
+ * --------------------------------
+ * rwd-image
+ * ----------------------------- */
+.rwd-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  max-height: 150px;
+}
 
 /**
  * --------------------------------
@@ -7,13 +23,14 @@
 .button-toggle {
   cursor:        pointer;
   border:        none;
+  margin-bottom: 10px;
   border-radius: 4px;
   padding:       0.63em 1.25em;
   font-size:     0.875em;
   background:    #fe4940;
   color:         #fff;
 }
-/* 버튼 상태 디자인 적용 */
+/* ë²„íŠ¼ ìƒíƒœ ë””ìžì¸ ì ìš© */
 .button-toggle:hover {
   background:    #701919;
 }
@@ -34,12 +51,15 @@
 }
 
 .toggled-view-container .container-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-size: 1.8em;
   font-weight: 100;
   color: #fe4940;
 }
 
 .toggled-view-container p {
-  color: #4a4a4a;
+  margin: 10px 0 5px;
+  color: #858585;
   letter-spacing: -0.015em;
 }
