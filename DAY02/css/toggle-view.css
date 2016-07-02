@@ -43,11 +43,16 @@ body {
  * toggled view design
  * ----------------------------- */
 .toggled-view-container {
-  width: 50vw;
+  opacity: 1;
+  width: 40vmax;
   border: 1px solid #dfdfdf;
   border-radius: 6px;
   padding: 1.6em;
   background: #efefef;
+  transition: opacity 1s ease-out;
+}
+.toggled-view-container.screen-hide {
+  opacity: 0;
 }
 
 .toggled-view-container .container-title {

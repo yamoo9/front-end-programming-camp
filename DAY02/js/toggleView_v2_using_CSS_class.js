@@ -27,22 +27,14 @@ var button_toggle = document.querySelector('.button-toggle');
 var container = document.querySelector('.toggled-view-container');
 var container_state = 'show';
 
-// JavaScript 조건문
-
-// if (조건) {
-//   조건이 참이면 수행
-// } else {
-//   조건이 거짓이면 수행
-// }
-
 button_toggle.addEventListener('click', function(){
     if ( container_state === 'show' ) {
-      // 수행 조건 2: container 요소가 화면에 보여진 상태일 때
-      container.style.display = 'none';
+      // container.style.display = 'none';
+      container.classList.add('screen-hide');
       container_state = 'hide';
     } else {
-      // 수행 조건 1: container 요소가 화면에 감춰진 상태일 때
-      container.style.display = 'block';
+      // container.style.display = 'block';
+      container.classList.remove('screen-hide');
       container_state = 'show';
     }
 });
