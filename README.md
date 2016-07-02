@@ -13,4 +13,4 @@
 ### 기타/참고
 
 - [placehold.it](http://placehold.it/)
-- [BOOK: Getting Started With p5.s](https://www.dropbox.com/s/i4g1696o5voquoh/getting-started-with-p5-js.pdf?dl=0)
+- [BOOK: Getting Started With p5.js](https://www.dropbox.com/s/i4g1696o5voquoh/getting-started-with-p5-js.pdf?dl=0)
