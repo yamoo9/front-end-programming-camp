@@ -1,0 +1,45 @@
+/*! toggle-view.css © yamoo9.net, 2016 */
+
+/**
+ * --------------------------------
+ * button design
+ * ----------------------------- */
+.button-toggle {
+  cursor:        pointer;
+  border:        none;
+  border-radius: 4px;
+  padding:       0.63em 1.25em;
+  font-size:     0.875em;
+  background:    #fe4940;
+  color:         #fff;
+}
+/* 버튼 상태 디자인 적용 */
+.button-toggle:hover {
+  background:    #701919;
+}
+.button-toggle:active {
+  position: relative;
+  top: 2px;
+}
+/**
+ * --------------------------------
+ * toggled view design
+ * ----------------------------- */
+.toggled-view-container {
+  width: 50vw;
+  border: 1px solid #dfdfdf;
+  border-radius: 6px;
+  padding: 1.6em;
+  background: #efefef;
+}
+
+.toggled-view-container .container-title {
+  font-size: 1.8em;
+  font-weight: 100;
+  color: #fe4940;
+}
+
+.toggled-view-container p {
+  color: #4a4a4a;
+  letter-spacing: -0.015em;
+}
