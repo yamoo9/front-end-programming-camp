@@ -49,10 +49,11 @@ body {
   border-radius: 6px;
   padding: 1.6em;
   background: #efefef;
-  transition: opacity 1s ease-out;
+  transition: all 200ms ease-out;
 }
 .toggled-view-container.screen-hide {
   opacity: 0;
+  transform: scale(0);
 }
 
 .toggled-view-container .container-title {
