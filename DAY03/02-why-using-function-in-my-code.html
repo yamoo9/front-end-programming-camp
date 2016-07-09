@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>왜? 함수를 사용하는가?</title>
+</head>
+<body>
+
+  <!-- .parent>.child*8>h3.brand-${Brand Indentity $}+p.slogan-$>loremen17 -->
+  <div class="parent">
+    <div class="child">
+      <h3 class="brand-1">Brand Indentity 1</h3>
+      <p class="slogan-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, accusantium. Veniam dolor, fugit cumque. Quidem, rerum, ipsam.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-2">Brand Indentity 2</h3>
+      <p class="slogan-2">Quasi ab voluptatibus numquam cupiditate, praesentium ullam quidem rerum ipsa eos rem facere perspiciatis quo dolorum hic.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-3">Brand Indentity 3</h3>
+      <p class="slogan-3">Distinctio nisi consectetur illum atque dolores veritatis eligendi vero, recusandae culpa corporis impedit asperiores, numquam quidem aspernatur.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-4">Brand Indentity 4</h3>
+      <p class="slogan-4">Fugiat laudantium natus maiores quos voluptatibus. Esse iure quam eos incidunt culpa numquam modi quae nostrum doloribus.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-5">Brand Indentity 5</h3>
+      <p class="slogan-5">Quis voluptate ullam adipisci, sunt perferendis recusandae veritatis magni excepturi provident explicabo, consequatur similique dignissimos, optio itaque.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-6">Brand Indentity 6</h3>
+      <p class="slogan-6">Magni ad illum eaque magnam, dignissimos eius deleniti dolore voluptatibus expedita nihil necessitatibus nostrum, unde, quisquam vitae!</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-7">Brand Indentity 7</h3>
+      <p class="slogan-7">Eum, deserunt natus, odit maxime impedit atque commodi fuga! Totam fugit quidem accusamus cumque, architecto, accusantium excepturi!</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-8">Brand Indentity 8</h3>
+      <p class="slogan-8">Dicta ad error, corporis voluptatum! Eligendi accusantium, facilis fuga nesciunt. Iusto sunt obcaecati eum, autem error voluptates!</p>
+    </div>
+  </div>
+
+
+  <script>
+  // 함수 $q()를 정의하려고 한다.
+  // 왜? document.querySelector() 너무 길어요 ㅠㅡㅠ
+  // 힘들어요..
+  // 헬퍼 함수를 만들거에요. 나를 위해서
+  // 내 손가락을 위해서
+  function $q(selector) {
+    // x = 10
+    // y = x * x * x / 20
+    // 사용자가 전달한 selector를 통해 문서의 객체를 찾아서 반환(return)
+    return document.querySelector(selector);
+  }
+
+  // 1. 찾아야 할 대상 .parent
+  var parent = $q('.parent');
+  console.log(parent);
+
+  // 2. .parent 요소의 마지막 .child를 찾아라.
+  var parent_last_child = $q('.parent > .child:last-child');
+  console.log(parent_last_child);
+
+  // 2.1. .parent 요소의 자식 중 마지막에서 2번째 요소 .child를 찾아라.
+  var parent_last_index_2_child = $q('.parent > .child:nth-last-child(2)');
+  console.log(parent_last_index_2_child);
+
+  // 3. .parent 요소의 짝수 .child 요소들을 찾아라.
+  var parent_even_childs = document.querySelectorAll('.parent > .child:nth-child(even)');
+  console.log(parent_even_childs);
+  </script>
+</body>
+</html>

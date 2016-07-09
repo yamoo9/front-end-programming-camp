@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if IE 6]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie6" dir="ltr" lang="ko-KR"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie7" dir="ltr" lang="ko-KR"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9 ie8" dir="ltr" lang="ko-KR"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10 ie9" dir="ltr" lang="ko-KR"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="ko-KR">
+<!--<![endif]-->
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>자바스크립트 코어 - 브라우저 객체 모델(BOM)</title>
+  <script>
+  // ------------------------------------------------
+  // 사용자가 사용하는 웹 브라우저는 브라우저를 구성하는 객체의 집합.
+  // BOM (Browser Object Model)
+  // ------------------------------------------------
+  // window 객체
+  // document 객체
+  // screen 객체
+  //  screen.height
+  //  screen.width
+  //  screen.availHeight
+  //  screen.availWidth
+  // hitory 객체
+  // .length
+  // .back()
+  // .forward()
+  // .go()
+  // location 객체
+  //  location.reload()
+  //  location.replace()
+  //  location.href
+  //  location.host
+  //  location.pathname
+  //  location.hash
+  //  location.search
+  // navigator 객체
+  //
+  // 자바스크립트 코어:
+  // 웹 브라우저에는 기본적으로 만들어져 있는 (Built-in) 객체들
+
+  // 변수란?
+  // 일종의 이름이 있는 메모리 공간으로
+  // 특정 데이터를 할당받아 처리한다.
+  // 웹브라우저에서 프로그래밍 실행 중에 값을 변경할 수 있다.
+
+  // 변수 정의
+  // 변수 이름 작성 규칙
+  // 첫글자가 숫자가 오면 안된다.
+  var mouse; // undefined
+  mouse = '매직 마우스';
+  console.log(mouse);
+
+  // 우리가 만든 첫번째 함수(Function)
+  // 함수 정의
+  // css check-device
+  // JS Function: checkDevice
+  // 함수를 정의할 때 사용자로 전달받는 인자를 할당 받을 매개변수(Parameter)를 정의
+  function checkDevice(device) {
+    // 함수 처리되는 코드를 프로그래밍
+    // navigator.userAgent.toLowerCase().indexOf('android') > -1
+    console.log(device, '사용자의 기기를 체크하겠다!');
+  }
+
+  // 전달하는 인자(argument)
+  checkDevice('iphone'); // true
+  // checkDevice('android'); // false
+  // checkDevice('nintendo');
+  // checkDevice('ipad');
+
+  function displayProcessOfHairShop() {
+    // 1. 가방을 인계하고 가운을 입는다.
+    console.log('가방을 인계하고 가운을 입는다.');
+    // 2. 의자에 앉는다.
+    console.log('의자에 앉는다.');
+    // 3. 원하는 헤어 스타일을 물색한다.
+    console.log('원하는 헤어 스타일을 물색한다.');
+    // 4. 원장님에게 원하는 헤어스타일을 알려준다.
+    console.log('원장님에게 원하는 헤어스타일을 알려준다.');
+    // 5. 헤어 커트한다.
+    console.log('헤어 커트한다.');
+    // 6. 머리를 감는다.
+    console.log('머리를 감는다.');
+    // 7. 드라이로 머리를 말린다.
+    console.log('드라이로 머리를 말린다.');
+    // 8. 결재한다.
+    console.log('결재한다.');
+  }
+
+  // 함수 실행
+  checkDevice();
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+/**
+ * CSS 선택자 탐색
+ * #page에서 자식 .row 찾은 후,
+ * 내부에서 첫번째 자식을 찾아라.
+ */
+
+#page .row .col-6:nth-child(1) {}
+#page .row .col-6:first-child {}

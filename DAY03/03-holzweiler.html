@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Holzweiler</title>
+  <style>
+  body {
+    margin: 0;
+    background: #fff;
+  }
+
+  .page-header {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    transition: 0.8s ease;
+  }
+
+  /*.page-header.hide-layout {
+    position: fixed;
+    top: -100%;
+  }*/
+
+  .page-header.fixed-layout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-bottom: 3em;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .page-header .brand {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 200px;
+    transform: translate(-50%, -50%);
+  }
+
+  .page-header .brand a {
+    display: block;
+  }
+
+  .page-header .brand img {
+    width: 100%;
+    height: auto;
+  }
+
+  .page-header .gnb ul,
+  .page-header .unb ul {
+    margin-top: 45px;
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .page-header .gnb ul {
+    float: left;
+    padding-left: 70px;
+  }
+
+  .page-header .unb ul {
+    float: right;
+    padding-right: 70px;
+  }
+
+  .page-header .gnb ul li,
+  .page-header .unb ul li {
+    float: left;
+    margin-right: 3em;
+  }
+
+  .page-header .gnb ul a,
+  .page-header .unb ul a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 14px;
+  }
+
+  .page-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .page-banner::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    bottom: 0px;
+    left: 0;
+    background: linear-gradient(transparent 0%, #fff 90%);
+  }
+
+  .page-banner video {
+    width: 100%;
+    height: auto;
+  }
+
+  .parent {
+    margin-left: 20%;
+    margin-right: 20%;
+    line-height: 1.5;
+    font-size: 18px;
+  }
+
+  .parent .child {
+    margin-top: 100px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="page-header">
+    <h1 class="brand">
+      <a href=""><img src="media/logo.svg" alt="Holzweiler"></a>
+    </h1>
+    <nav class="gnb">
+      <ul>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+    <nav class="unb">
+      <ul>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">Sign in</a></li>
+        <li><a href="#">NOK</a></li>
+        <li><a href="#">Bag (0)</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="page-banner">
+    <video src="media/holzweiler_new.mp4" autoplay loop></video>
+  </div>
+  <div class="parent">
+    <div class="child">
+      <h3 class="brand-1">Brand Indentity 1</h3>
+      <p class="slogan-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, accusantium. Veniam dolor, fugit cumque. Quidem, rerum, ipsam.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-2">Brand Indentity 2</h3>
+      <p class="slogan-2">Quasi ab voluptatibus numquam cupiditate, praesentium ullam quidem rerum ipsa eos rem facere perspiciatis quo dolorum hic.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-3">Brand Indentity 3</h3>
+      <p class="slogan-3">Distinctio nisi consectetur illum atque dolores veritatis eligendi vero, recusandae culpa corporis impedit asperiores, numquam quidem aspernatur.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-4">Brand Indentity 4</h3>
+      <p class="slogan-4">Fugiat laudantium natus maiores quos voluptatibus. Esse iure quam eos incidunt culpa numquam modi quae nostrum doloribus.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-5">Brand Indentity 5</h3>
+      <p class="slogan-5">Quis voluptate ullam adipisci, sunt perferendis recusandae veritatis magni excepturi provident explicabo, consequatur similique dignissimos, optio itaque.</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-6">Brand Indentity 6</h3>
+      <p class="slogan-6">Magni ad illum eaque magnam, dignissimos eius deleniti dolore voluptatibus expedita nihil necessitatibus nostrum, unde, quisquam vitae!</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-7">Brand Indentity 7</h3>
+      <p class="slogan-7">Eum, deserunt natus, odit maxime impedit atque commodi fuga! Totam fugit quidem accusamus cumque, architecto, accusantium excepturi!</p>
+    </div>
+    <div class="child">
+      <h3 class="brand-8">Brand Indentity 8</h3>
+      <p class="slogan-8">Dicta ad error, corporis voluptatum! Eligendi accusantium, facilis fuga nesciunt. Iusto sunt obcaecati eum, autem error voluptates!</p>
+    </div>
+  </div>
+  <script>
+  var memory_scrollY = window.scrollY;
+  var page_header = document.querySelector('.page-header');
+
+  window.addEventListener('scroll', function() {
+    // memory_scrollY = 사용자가 마지막으로 스크롤한 높이
+    // window.scrollY = 현재 사용자가 스크롤 한 높이
+    // 두 값을 비교 연산
+    if (window.scrollY <= 100) {
+      // page_header.classList.remove('hide-layout');
+    } else if (memory_scrollY < window.scrollY) {
+      // console.log('사용자가 스크롤을 내렸다.');
+      // page_header.classList.add('hide-layout');
+      page_header.classList.remove('fixed-layout');
+    } else {
+      // console.log('사용자가 스크롤을 올렸다.');
+      // page_header.classList.remove('hide-layout');
+      page_header.classList.add('fixed-layout');
+    }
+    // 현재 사용자가 스크롤 한 높이를 메모리(기억)해둔다.
+    memory_scrollY = window.scrollY;
+  });
+  </script>
+</body>
+
+</html>
