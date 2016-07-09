@@ -169,26 +169,70 @@ gnb_ul.setAttribute('class', 'reset-list clearfix');
 gnb.appendChild(gnb_ul);
 
 // ----------------------------------------------------
-// STEP 5. <li> 요소를 생성한다.
-var gnb_li_1st = document.createElement('li');
-gnb_li_1st.setAttribute('class', 'float-left');
-gnb_ul.appendChild(gnb_li_1st);
+// STEP 5. <li> 요소를 x5 생성한다.
+
+// ----------------------------------------------------
+// 내비게이션 텍스트 아이템을 배열 데이터에 추가해본다.
+var gnb_text_items = [
+  'Home',
+  'About',
+  'Works',
+  'Contect',
+  'Favorites'
+];
+
+// var gnb_li_1st = document.createElement('li');
+// gnb_li_1st.setAttribute('class', 'float-left');
+// gnb_ul.appendChild(gnb_li_1st);
 
 // ----------------------------------------------------
 // STEP 6. <a> 요소를 생성한다.
-var gnb_li_1st_a = document.createElement('a');
-// class 속성 설정
-gnb_li_1st_a.setAttribute('href', '');
-// 텍스트 노드 생성 'Home'
-var gnb_li_1st_a_text = document.createTextNode('Home');
-gnb_li_1st_a.appendChild(gnb_li_1st_a_text);
+// var gnb_li_1st_a = document.createElement('a');
+// // class 속성 설정
+// gnb_li_1st_a.setAttribute('href', '');
+// // 텍스트 노드 생성 'Home'
+// var gnb_li_1st_a_text = document.createTextNode('Home');
+// gnb_li_1st_a.appendChild(gnb_li_1st_a_text);
 
-gnb_li_1st.appendChild(gnb_li_1st_a);
+// gnb_li_1st.appendChild(gnb_li_1st_a);
+
+
+// ----------------------------------------------------
+// 자바스크립트 반복문을 활용했다.
+// gnb_text_items.length 개수 만큼 반복하여 요소를 생성한다.
+for ( var i = 0; i < gnb_text_items.length; i++ ) {
+  var text = gnb_text_items[i];
+  // 문자열 접합(용접)
+  // console.log('<a>' + text + '</a>');
+  // --------------------------------------------------------
+  // <li> 생성
+  var li = document.createElement('li');
+  // <li class="float-left">
+  li.setAttribute('class', 'float-left');
+  // --------------------------------------------------------
+  // <a> 생성
+  var link = document.createElement('a');
+  // <a href="">
+  link.setAttribute('href', '');
+  // 'Home'
+  var link_text = document.createTextNode(text);
+  // <a href="">Home</a>
+  link.appendChild(link_text);
+  // --------------------------------------------------------
+  // <li><a href="">Home</a></li>
+  li.appendChild(link);
+  // <ul><li><a href="">Home</a></li></ul>
+  gnb_ul.appendChild(li);
+}
 
 // ----------------------------------------------------
 // 최종 생성 결과를 출력한다.
-console.log(gnb.outerHTML);
+// console.log(gnb.outerHTML);
 
+// ---
+// 생성된 gnb 요소(<nav>)를 문서의 #gnb-position 내부 마지막 요소로 붙인다.
+var gnb_position = document.querySelector('#gnb-position');
+gnb_position.appendChild(gnb);
 
 
 
@@ -220,28 +264,98 @@ console.log(gnb.outerHTML);
 // -------------------------------
 // 1번째 "숫자"
 var num = 2016;
-console.log(typeof num);
+// console.log(typeof num);
 // 2번째 "문자"
 var str = "2016";
-console.log(typeof str);
+// console.log(typeof str);
 // 3번째 "불리언"
 var boo = !num; // true 또는 false
-console.log(typeof boo);
+// console.log(typeof boo);
 
 // -------------------------------
 // 복잡한 데이터 유형 3가지
 // -------------------------------
 // 4번째 "함수"
 var fnc = function() {};
-console.log(typeof fnc);
+// console.log(typeof fnc);
 // 5번째 "배열"
 // [ 컵, 리모콘, 음료수, 충전기, 노트북 ]
 var arr = [];
-console.log(typeof arr); // 'array' ??
+// console.log(typeof arr); // 'array' ??
 // ※ typeof는 치명적인 설계 오류를 가지고 있다!!!
 // 사용에 주의가 요구된다. 어떻게 해야? Array를
 // 올바르게 확인할 수 있을까?
 // console.log( arr instanceof Array );
 // 6번째 "객체"
 var obj = {};
-console.log(typeof obj);
+// console.log(typeof obj);
+
+// 생성된 배열 원소의 개수는?
+// console.log(gnb_text_items.length); // 5
+
+// 자바스크립트의 반복문
+// ~ 동안(while)
+// while문
+
+// 디버깅 용도
+// 사실 잘 사용하지 않는다.
+// debugger;
+
+var state = true;
+var limit_count = 3;
+
+while(state) {
+  // 처리되는 구문(반복)
+  // console.log('나는 항상 관대하다');
+  // limit_count = limit_count - 1; // 2
+  // limit_count -= 1;
+  limit_count--;
+  // 조건 문 수행
+  if (limit_count <= 0) {
+    state = false;
+  }
+}
+
+// ------------------------------------
+// while문 -> for문 변경
+// ------------------------------------
+
+// for문의 기본 골격
+// for( 변수 선언; 변수 조건 확인; 변수 값 변경 ) {
+// for ( var i = 0; i < 10; i = i + 2 ) {
+    // console.log( i );
+// }
+
+
+// 위에서 다룬 while 문을 for 문으로 변경
+var state = true;
+// var limit_count = 3;
+
+for( var limit_count = 3; limit_count > 0; limit_count -= 1 ) {
+  // 처리되는 구문(반복)
+  // console.log('나는 항상 관대하다');
+}
+
+// ------------------------------------------------
+// gnb_text_items 변수는 위에서 이미 정의되어 있다.
+// var gnb_text_items = [
+//   'Home',
+//   'About',
+//   'Works',
+//   'Contect',
+//   'Favorites'
+// ];
+
+// 역방향
+for( var i = gnb_text_items.length - 1; i >= 0 ; i-- ) {
+    // console.log(gnb_text_items[i] , i);
+}
+
+// 정방향
+for( var a = 0; a < gnb_text_items.length; a++ ) {
+    // console.log(gnb_text_items[a] , a);
+}
+
+// for문이 완료된 이후에 조건 변수는 마지막 값이 살아있고
+// 최종적으로 변경이 수행된 값이 된다.
+// console.log(a); // a === 5
