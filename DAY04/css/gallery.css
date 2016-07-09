@@ -13,13 +13,17 @@ h1, p {
 }
 
 h1 {
+  margin-bottom: 0.2em;
   color: #232323;
   letter-spacing: -0.03em;
-  margin-bottom: 0.2em;
+  font-weight: 100;
+  font-size: 3rem;
 }
 
 p {
   margin-bottom: 1.5rem;
+  text-align: justify;
+  /*text-align-last: left;*/
 }
 
 /**
@@ -57,7 +61,7 @@ p {
 
 .gallery-controls .gallery-control-button:hover,
 .gallery-controls .gallery-control-button:focus {
-  outline: 6px solid #b9b9b9;
+  outline: 6px solid #bd4a4d;
 }
 
 .gallery-controls .gallery-control-button:last-child {
