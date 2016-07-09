@@ -65,6 +65,183 @@ page_row_last_child = row.lastElementChild;
 // 문서 객체 모델(객체 사이의 관계, 부모/자식/형제) 탐색(DOM Traversal)
 // ---------------------------------------------------------
 // <html> 루트 요소를 찾은 후
+var html = document.documentElement;
 // 첫번째 자식 요소노드를 찾아라
+var html_in_firstElChild = html.firstElementChild;
 // 그리고 다음에 위치한 형제 요소노드를 찾아라
+// var next_Elsibling = html_in_firstElChild.nextSibling;
+var next_Elsibling = html_in_firstElChild.nextElementSibling;
 // 그리고나서 부모요소노드에 접근한 결과(부모요소노드)를 콘솔에 출력하라.
+var parent_ElNode = next_Elsibling.parentNode;
+
+// console.log('html:', html);
+// console.log('html_in_firstElChild:', html_in_firstElChild);
+// console.log('next_Elsibling:', next_Elsibling);
+// console.log('parent_ElNode:', parent_ElNode);
+
+// --------------------------------------------------
+// .col-3:nth-child(2) 요소노드를 찾아라.
+// --------------------------------------------------
+
+// 방법 1. CSS 선택자로 엄청 쉽게 찾자.
+var target_el = document.querySelector('#page .col-3:nth-child(2)');
+
+// 방법 2. JS의 DOM 탐색 방법으로 어렵게 찾아 보자.
+// <html> 부터 시작
+var body = html.lastElementChild;
+
+var page_child = body.firstElementChild;
+
+var row_in_page = page_child.firstElementChild;
+
+var row_2nd_child = row_in_page.firstElementChild.nextElementSibling;
+
+// console.log('row_2nd_child: ', row_2nd_child);
+
+// <div>this is division.</div>
+// 위 코드에서 this is division은 텍스트 노드이다.
+// 요소노드 div에서 텍스트노드에 접근하기 위해서는
+// 첫번째 자식노드에 접근하는 .firstChild를 사용해야 한다.
+// 이 때 접근한 텍스트노드의 노드 유형(nodeType)은 3을 반환한다.
+// 반면 요소노드의 유형(nodetype)은 1이다.
+// 텍스트노드의 값에 접근하려면 노드 값(nodeValue)를 사용한다.
+
+// --------------------------------------------------
+// 노드 유형
+// --------------------------------------------------
+// https://developer.mozilla.org/ko/docs/Web/API/Node/nodeType
+// ElementNode.nodeType   // 1
+// AttributeNode.nodeType // 2
+// TextNode.nodeType      // 3
+// CommentNode.nodeType   // 8
+
+
+// --------------------------------------------------
+// 노드 생성(Create)
+// --------------------------------------------------
+
+// 문서에 요소를 생성한다.
+// 그래서? 어떤 요소를 생성할꺼야?
+// <div> 요소를 생성하고 싶어
+// 그래 알겠어
+
+var my_div = document.createElement('div'); // <div></div>
+
+// console.log(my_div);
+
+
+// 다음 마크업을 자바스크립트로 동적 생성 구현해보자.
+// <nav id="page-gnb">
+//   <ul class="reset-list clearfix">
+//     <li class="float-left"><a href="">Home</a></li>
+//     <li class="float-left"><a href="">About</a></li>
+//     <li class="float-left"><a href="">Works</a></li>
+//     <li class="float-left"><a href="">Contect</a></li>
+//     <li class="float-left"><a href="">Favorites</a></li>
+//   </ul>
+// </nav>
+
+// ----------------------------------------------------
+// STEP 1. <nav> 요소를 생성한다.
+var gnb = document.createElement('nav');
+
+// ----------------------------------------------------
+// STEP 2. 생성한 gnb 요소에 id 속성으로 값을 'page-gnb'라고 설정한다.
+
+// 오래 전 방식
+// gnb.id = 'page-gnb';
+// gnb.data-cutom-id = 'yamoo9'; // 새롭게 등장한 속성은 X
+
+// 새로운 방식(권장)
+gnb.setAttribute('id', 'page-gnb');
+// gnb.setAttribute('data-cutom-id', 'yamoo9');
+
+
+// ----------------------------------------------------
+// STEP 3. <ul> 요소를 생성한다.
+var gnb_ul = document.createElement('ul');
+gnb_ul.setAttribute('class', 'reset-list clearfix');
+// gnb_ul.setAttribute('class', 'clearfix');
+
+// ----------------------------------------------------
+// STEP 4. <ul> 요소를 <nav id="page-gnb">의 자식 요소로 추가(삽입)한다.
+// 부모노드.appendChild(자식노드) // 마지막 자식으로 추가(삽입)
+gnb.appendChild(gnb_ul);
+
+// ----------------------------------------------------
+// STEP 5. <li> 요소를 생성한다.
+var gnb_li_1st = document.createElement('li');
+gnb_li_1st.setAttribute('class', 'float-left');
+gnb_ul.appendChild(gnb_li_1st);
+
+// ----------------------------------------------------
+// STEP 6. <a> 요소를 생성한다.
+var gnb_li_1st_a = document.createElement('a');
+// class 속성 설정
+gnb_li_1st_a.setAttribute('href', '');
+// 텍스트 노드 생성 'Home'
+var gnb_li_1st_a_text = document.createTextNode('Home');
+gnb_li_1st_a.appendChild(gnb_li_1st_a_text);
+
+gnb_li_1st.appendChild(gnb_li_1st_a);
+
+// ----------------------------------------------------
+// 최종 생성 결과를 출력한다.
+console.log(gnb.outerHTML);
+
+
+
+
+// ----------------------------------------------------
+// 자바스크립트 코어 세계
+// [ 데이터 유형 ]
+// 1. 숫자 유형 ex) 10, 0.8934, 1.1592, -0.43
+// 2. 문자 유형
+// 3. 불리언 유형
+// 4. 함수 유형
+// 5. 배열 유형
+// 6. 객체 유형
+// 객체가 아닌 것들
+
+// [ 데이터 유형 체크 ]
+// typeof 데이터 ----> 어떤 유형인지
+// 1. 'number'
+// 2. 'string'
+// 3. 'boolean'
+// 4. 'function'
+// 5. 'object' ※ typeof는 설계가 잘못되었다!!!!!!!!!!!
+// 6. 'object'
+// ----------------------------------------------------
+
+// 자바스크립트의 데이터 유형 6가지
+
+// -------------------------------
+// 원시 데이터 유형 3가지
+// -------------------------------
+// 1번째 "숫자"
+var num = 2016;
+console.log(typeof num);
+// 2번째 "문자"
+var str = "2016";
+console.log(typeof str);
+// 3번째 "불리언"
+var boo = !num; // true 또는 false
+console.log(typeof boo);
+
+// -------------------------------
+// 복잡한 데이터 유형 3가지
+// -------------------------------
+// 4번째 "함수"
+var fnc = function() {};
+console.log(typeof fnc);
+// 5번째 "배열"
+// [ 컵, 리모콘, 음료수, 충전기, 노트북 ]
+var arr = [];
+console.log(typeof arr); // 'array' ??
+// ※ typeof는 치명적인 설계 오류를 가지고 있다!!!
+// 사용에 주의가 요구된다. 어떻게 해야? Array를
+// 올바르게 확인할 수 있을까?
+// console.log( arr instanceof Array );
+// 6번째 "객체"
+var obj = {};
+console.log(typeof obj);
