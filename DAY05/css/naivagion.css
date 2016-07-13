@@ -13,10 +13,14 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255,255,255,0.45);
   font-size: 13px;
   letter-spacing: 0.03em;
   transition: all 0.3s;
+}
+
+/* 사용자가 스크롤을 내린 상태 > 뷰 변경 */
+.page-gnb.scrolled-state {
+  background: rgba(255,0,0,0.55);
 }
 
 .page-gnb ul {

@@ -65,6 +65,17 @@ Various Projects -->
 Stockists
 Help -->
 
+<script>
+var page_gnb = document.querySelector('.page-gnb');
+window.addEventListener('scroll', function() {
+  if ( window.scrollY > 0 ) {
+    page_gnb.classList.add('scrolled-state');
+  } else {
+    page_gnb.classList.remove('scrolled-state');
+  }
+});
+</script>
+
 </body>
 
 </html>
