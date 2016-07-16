@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>자바스크립트 &lt; 코어</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300&amp;Helvetica:400" rel="stylesheet">
+</head>
+<body><p>야무 한글 로렘입숨 로렘 입숨이란?
+디자인을 위한 더미 텍스트!. 해도 어디에나 너 않고 젊음의,
+거추장스런 만들 장엄한 청춘 빛나는 심장 청춘의 그대 소리
+설레게 너야말로 숨소리가 실수조차도 하루를 눈부신 세상을,
+씩씩하게 흐르는 아름답다 땀 가슴을 꽃처럼 하고 엮어가는!
+세상을, 흐르는, 내일의. 만들 보기만, 땀 아름다운.</p><p>
+  (function(global){
+    'use strict';
+    console.log(this === global);
+  })(this);
+</p><hr><!-- preserved text --><pre>
+야무 한글 로렘입숨 로렘 입숨이란?
+디자인을 위한 더미 텍스트!. 해도 어디에나 너 않고 젊음의,
+거추장스런 만들 장엄한 청춘 빛나는 심장 청춘의 그대 소리
+설레게 너야말로 숨소리가 실수조차도 하루를 눈부신 세상을,
+씩씩하게 흐르는 아름답다 땀 가슴을 꽃처럼 하고 엮어가는!
+세상을, 흐르는, 내일의. 만들 보기만, 땀 아름다운.
+</pre><pre>
+  (function(global){
+    'use strict';
+    console.log(this === global);
+  })(this);
+</pre><script>
+  // var count = 0;
+  // --count; // -1
+  // console.log(--count === -1);
+  // count++; // 0
+  // console.log(count++ === 0);
+  // ++count; // 1
+  // count--; // 0
+  // console.log(count);
+
+// console.log( 'document.body.firstChild: ', document.body.firstChild );
+
+// console.log(document.body.outerHTML);
+
+// function cleanWhiteSpace(element) {
+//     element = element || document.body;
+//     var cur = element.firstChild;
+//     while ( cur !== null ) {
+//         if( cur.nodeType === 3 && !(/\S/.test(cur.nodeValue)) ) {
+//             element.removeChild(cur);
+//         } else if(cur.nodeType === 1) {
+//             cleanWhiteSpace(cur);
+//         }
+//         cur = cur.nextSibling;
+//     }
+// }
+
+// HTML 코드의 공백을 모두 제거합니다.
+// cleanWhiteSpace();
+
+// console.log(document.body.outerHTML);
+
+// console.log( 'document.body.firstChild: ', document.body.firstChild );
+
+
+// 이전 형제 요소노드를 찾아 반환하는 함수
+function prevEl(elNode) {
+  var el;
+  // 전달인자 검증 Validation Arguments
+  if ( elNode.nodeType !== 1) {
+    throw new Error('전달된 인자는 요소노드가 아닙니다.');
+  }
+  // 최신 브라우저인가?
+  if (elNode.previousElementSibling) {
+    el = elNode.previousElementSibling;
+  }
+  // 구형 브라우저인가?
+  else {
+    el = elNode; // 요소노드이거나, 또는 텍스트 노드이거나...
+    do {
+      el = el.previousSibling;
+    } while(el && el.nodeType !== 1);
+  }
+  return el;
+}
+</script>
+</body>
+</html>
