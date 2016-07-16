@@ -230,3 +230,17 @@ while(count > 0) {
 // }
 
 // console.log('out of for문의 i', i);
+
+
+/**
+ * --------------------------------
+ * for ~ in 문
+ *
+ * 특정 객체 안에 속성이 존재하는가 확인할 경우 사용
+ * ----------------------------- */
+
+var dom_el = document.createElement('div');
+var property = 'transition';
+
+// property in dom_el.style; // true
+
