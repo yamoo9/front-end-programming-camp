@@ -83,6 +83,36 @@ function prevEl(elNode) {
   }
   return el;
 }
+
+function nextEl(elNode) {
+  var el;
+  // 전달인자 검증 Validation Arguments
+  if ( elNode.nodeType !== 1) {
+    throw new Error('전달된 인자는 요소노드가 아닙니다.');
+  }
+  // 최신 브라우저인가?
+  if (elNode.nextElementSibling) {
+    el = elNode.nextElementSibling;
+  }
+  // 구형 브라우저인가?
+  else {
+    el = elNode; // 요소노드이거나, 또는 텍스트 노드이거나...
+    do {
+      el = el.nextSibling;
+    } while(el && el.nodeType !== 1);
+  }
+  return el;
+}
+
+var $;
+
+if ( window.jQuery ) {
+  $ = window.jQuery;
+} else {
+  $ = document.body;
+}
+
+var $ = window.jQuery || document.body;
 </script>
 </body>
 </html>

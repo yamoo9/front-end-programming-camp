@@ -163,7 +163,7 @@ switch(today) {
 // while문
 // while(조건) {조건이 참이면 실행(반복)}
 
-var count = 10;
+var i = 10;
 
 // if(count > 0) {
 //   console.log(count); // 10 출력 후, 종료(1회 실행)
@@ -205,3 +205,28 @@ while(count > 0) {
 //   count--;
 // } while(count > 0);
 
+
+/**
+ * --------------------------------
+ * for문
+ * ----------------------------- */
+// var i = 0;
+// while(i < 10) {
+//   console.log('iteration'); // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+//   i++; // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+// }
+
+// for ( 변수 선언; 변수 검증; 변수 변경 ) {
+// for ( var i = 0; i < 10; i++ ) {
+//   console.log('iteration');
+// }
+
+// 아래 방법도 가능!
+// 변수 선언;
+// for ( ; 변수 검증; 변수 변경 ) {
+// var i = 0;
+// for ( ; i < 10; i++ ) {
+//   console.log('iteration:', i); // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+// }
+
+// console.log('out of for문의 i', i);
