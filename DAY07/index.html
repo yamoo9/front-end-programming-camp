@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>JavaScript</title>
+  <style>
+    body {
+      margin: 3rem;
+    }
+
+    .content {
+      margin-top: 1.5rem;
+      width: 50%;
+      min-width: 300px;
+      border: 10px solid #eaeaea;
+      /*padding: 1rem;*/
+      transition: all 0.8s ease;
+    }
+
+    .content .content-title,
+    .content .content-desc {
+      margin: 1rem;
+    }
+    .content .content-desc {
+      /*margin-bottom: 0;*/
+    }
+
+    .content .content-title {
+      margin-bottom: 0.625rem;
+    }
+
+    .toggle-content-btn {
+      cursor: pointer;
+      background-color: #652cbc;
+      color: #fff;
+      border: none;
+      padding: 1em 1.3em;
+      border-radius: 4px;
+    }
+
+    .toggle-content-btn:hover,
+    .toggle-content-btn:focus {
+      background: #8454ce;
+    }
+    .toggle-content-btn:active {
+      position: relative;
+      top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <button type="button" class="toggle-content-btn">Toggle Content</button>
+
+  <div class="content">
+    <h2 class="content-title">Content Title</h2>
+    <p class="content-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae exercitationem ex nulla numquam voluptate, rerum molestiae laborum, repellendus esse neque iusto deleniti minus facilis assumenda illum dolore eius dolores odio.</p>
+  </div>
+
+<script>
+function $(selector) {
+  return document.querySelector(selector);
+}
+
+var toggle_btn = $('.toggle-content-btn');
+var content = $('.content');
+var content_original_height = content.clientHeight;
+var btn_togged = false;
+
+function toggleContent() {
+  if ( btn_togged === false ) {
+    // console.log(btn_togged);
+    content.style.height = 0;
+    // content.style.padding = 0;
+    content.style.overflow = 'hidden';
+    btn_togged = true;
+  } else {
+    // console.log(btn_togged);
+    content.style.height = content_original_height + 'px';
+    // content.style.padding = '1rem';
+    // content.style.overflow = 'visible';
+    btn_togged = false;
+  }
+}
+
+toggle_btn.onclick = toggleContent;
+</script>
+</body>
+</html>

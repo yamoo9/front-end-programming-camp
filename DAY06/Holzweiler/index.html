@@ -83,29 +83,5 @@
     </button>
   </section>
 
-
-<script>
-// .holzweiler-gnb 요소를 찾는다.
-var gnb = document.querySelector('.holzweiler-gnb');
-// .holzweiler-gnb .depth-1 > li > a
-var gnb_d1_links = gnb.querySelectorAll('.depth-1 > li > a');
-
-for (var i=0; i<gnb_d1_links.length; i++){
-  var link = gnb_d1_links[i];
-  link.addEventListener('focus', showDepth2Menu);
-}
-
-function showDepth2Menu() {
-  // console.log(this);
-  // 함수 내에서 this는 이벤트가 연결된 링크(<a>)를 가리킨다.
-  var parent = this.parentNode;
-  var grand_parent = parent.parentNode; // <ul>
-  var active_parent = grand_parent.querySelector('.active');
-  if ( active_parent ) {
-    active_parent.classList.remove('active');
-  }
-  parent.classList.add('active');
-}
-</script>
 </body>
 </html>
