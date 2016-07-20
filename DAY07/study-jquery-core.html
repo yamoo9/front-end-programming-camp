@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery Core</title>
+  <style>
+    .clicked {
+      font-weight: 900;
+      font-size: 22px;
+      color: #fc414b;
+    }
+  </style>
+  <script src="../Resources/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">column <span>3</span></div>
+    <p class="slogan">야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 사명으로 눈부신 너 청춘 보기만 티셔츠.</p>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="col-3">column <span>3</span></div>
+  <p class="slogan">야무 한글 로렘입숨 로렘입숨이란? 디자인을 위한 더미 텍스트!. 사명으로 눈부신 너 청춘 보기만 티셔츠.</p>
+</div>
+
+<script>
+/**
+ * --------------------------------
+ * jQuery 코어 문법
+ * $(), jQuery() 팩토리 함수
+ * ----------------------------- */
+// 첫번째 사용 방법
+// $('selector expression'[, context]);
+// context????
+// Element or jQuery ('selector expression')
+// <body>, 'body'
+// console.log($('body'));
+// Native JavaScript 방식
+var body = document.body;
+// body.style.backgroundColor = 'red';
+// body.style.margin          = 0;
+// body.style.fontSize        = '100px';
+// jQuery Library 방식
+var $body = $('body');
+// $body.css({
+//   'background': 'darkblue',
+//   'margin':     20,
+//   'font-size':  20
+// });
+
+
+var $col_3 = $('.col-3');
+// console.log($col_3, $col_3.length);
+$col_3.click(function() {
+  // $('span').addClass('clicked');
+  $('span', this).addClass('clicked');
+});
+</script>
+</body>
+</html>
