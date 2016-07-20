@@ -10,6 +10,7 @@
     }
 
     .content {
+      overflow: hidden;
       margin-top: 1.5rem;
       width: 50%;
       min-width: 300px;
@@ -63,26 +64,25 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
+function toggleContent() {
+  if ( btn_togged === true ) {
+    // console.log(btn_togged);
+    content.style.height = 0;
+    btn_togged = false;
+  } else {
+    // console.log(btn_togged);
+    content.style.height = content_original_height + 'px';
+    btn_togged = true;
+  }
+}
+
 var toggle_btn = $('.toggle-content-btn');
 var content = $('.content');
 var content_original_height = content.clientHeight;
 var btn_togged = false;
 
-function toggleContent() {
-  if ( btn_togged === false ) {
-    // console.log(btn_togged);
-    content.style.height = 0;
-    // content.style.padding = 0;
-    content.style.overflow = 'hidden';
-    btn_togged = true;
-  } else {
-    // console.log(btn_togged);
-    content.style.height = content_original_height + 'px';
-    // content.style.padding = '1rem';
-    // content.style.overflow = 'visible';
-    btn_togged = false;
-  }
-}
+// 처음에 버튼 클릭 시, 튀지 않도록 하기 위한 초기 값 설정
+content.style.height = 0;
 
 toggle_btn.onclick = toggleContent;
 </script>
