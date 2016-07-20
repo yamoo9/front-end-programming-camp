@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
-  <title>JavaScript</title>
+  <title>jQuery Start</title>
   <style>
     body {
       margin: 3rem;
@@ -50,6 +50,8 @@
       top: 2px;
     }
   </style>
+  <!-- Load jQuery Library -->
+  <script src="../Resources/jquery-3.1.0.min.js"></script>
 </head>
 <body>
 
@@ -61,32 +63,9 @@
     <img src="http://placehold.it/400x200/000/fff/?text=1" width="400" height="200" alt="">
   </div>
 
-<script>
-function $(selector) {
-  return document.querySelector(selector);
-}
+  <script>
+    // document.write('jQuery 지원 유무: ' + (window.jQuery ? '지원' : '미지원') );
+  </script>
 
-function toggleContent() {
-  if ( btn_togged === true ) {
-    // console.log(btn_togged);
-    content.style.height = 0;
-    btn_togged = false;
-  } else {
-    // console.log(btn_togged);
-    content.style.height = content_original_height + 'px';
-    btn_togged = true;
-  }
-}
-
-var toggle_btn = $('.toggle-content-btn');
-var content = $('.content');
-var content_original_height = content.clientHeight;
-var btn_togged = false;
-
-// 처음에 버튼 클릭 시, 튀지 않도록 하기 위한 초기 값 설정
-content.style.height = 0;
-
-toggle_btn.onclick = toggleContent;
-</script>
 </body>
 </html>
