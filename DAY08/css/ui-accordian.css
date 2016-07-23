@@ -1,3 +1,16 @@
+body {
+  margin: 3rem;
+  font-family: "Hind";
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
 /**
  * --------------------------------
  * #02cade
@@ -6,3 +19,89 @@
  * #f4ca00
  * #e27a00
  * ----------------------------- */
+.ui-accordian {
+  margin-top: 2rem;
+  background: #000;
+  max-width: 400px;
+}
+.ui-accordian-tab-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ui-accordian-tab {
+  position: relative;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 1em 1.3em;
+  color: #fff;
+  font-weight: 100;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+.ui-accordian-tab::before,
+.ui-accordian-tab::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  right: 1em;
+  width: 15px;
+  height: 2px;
+  background: #fff;
+  transform: translateY(-50%);
+}
+
+.ui-accordian-tab::after {
+  transform: rotate(90deg);
+  width: 14px;
+}
+
+.ui-accordian-tab-list li:nth-child(1) .ui-accordian-tab { background: #02cade; }
+.ui-accordian-tab-list li:nth-child(2) .ui-accordian-tab { background: #00d99a; }
+.ui-accordian-tab-list li:nth-child(3) .ui-accordian-tab { background: #019490; }
+.ui-accordian-tab-list li:nth-child(4) .ui-accordian-tab { background: #f4ca00; }
+.ui-accordian-tab-list li:nth-child(5) .ui-accordian-tab { background: #e27a00; }
+
+.ui-accordian-content {
+  padding: 1.4em 1em;
+  background: #fff;
+  color: #737171;
+}
+
+/**
+ * --------------------------------
+ * 상태 디자인
+ * ----------------------------- */
+.ui-accordian-tab-list .active-accordian {
+}
+
+.ui-accordian-tab-list li.active-accordian .ui-accordian-tab {
+  background: #fff;
+  border-top: 2px solid #dedede;
+  border-bottom: 2px solid #dedede;
+}
+.ui-accordian-tab-list li.active-accordian .ui-accordian-tab::before,
+.ui-accordian-tab-list li.active-accordian .ui-accordian-tab::after {
+  background: currentColor;
+}
+.ui-accordian-tab-list li.active-accordian .ui-accordian-tab::after {
+  transform: rotate(0deg);
+}
+
+/* accordian tab 1 */
+.ui-accordian-tab-list li.active-accordian:nth-child(1) { border-right: 5px solid #02cade; }
+.ui-accordian-tab-list li.active-accordian:nth-child(1) .ui-accordian-tab { color: #02cade; }
+/* accordian tab 2 */
+.ui-accordian-tab-list li.active-accordian:nth-child(2) { border-right: 5px solid #00d99a; }
+.ui-accordian-tab-list li.active-accordian:nth-child(2) .ui-accordian-tab { color: #00d99a; }
+/* accordian tab 3 */
+.ui-accordian-tab-list li.active-accordian:nth-child(3) { border-right: 5px solid #019490; }
+.ui-accordian-tab-list li.active-accordian:nth-child(3) .ui-accordian-tab { color: #019490; }
+/* accordian tab 4 */
+.ui-accordian-tab-list li.active-accordian:nth-child(4) { border-right: 5px solid #f4ca00; }
+.ui-accordian-tab-list li.active-accordian:nth-child(4) .ui-accordian-tab { color: #f4ca00; }
+/* accordian tab 5 */
+.ui-accordian-tab-list li.active-accordian:nth-child(5) { border-right: 5px solid #e27a00; }
+.ui-accordian-tab-list li.active-accordian:nth-child(5) .ui-accordian-tab { color: #e27a00; }
