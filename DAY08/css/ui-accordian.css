@@ -1,3 +1,6 @@
+html {
+  overflow-y: scroll;
+}
 body {
   margin: 3rem;
   font-family: "Hind";
@@ -9,6 +12,7 @@ h1 {
 
 p {
   margin-top: 0;
+  color: #777;
 }
 
 /**
@@ -22,8 +26,15 @@ p {
 .ui-accordian {
   margin-top: 2rem;
   background: #000;
-  max-width: 400px;
+  /*max-width: 400px;*/
 }
+
+.ui-accordian *,
+.ui-accordian *::before,
+.ui-accordian *::after {
+  transition: all 0.2s ease;
+}
+
 .ui-accordian-tab-list {
   list-style: none;
   padding-left: 0;
@@ -53,6 +64,10 @@ p {
   transform: translateY(-50%);
 }
 
+.ui-accordian-tab::before {
+  transform: rotate(0deg);
+}
+
 .ui-accordian-tab::after {
   transform: rotate(90deg);
   width: 14px;
@@ -64,10 +79,25 @@ p {
 .ui-accordian-tab-list li:nth-child(4) .ui-accordian-tab { background: #f4ca00; }
 .ui-accordian-tab-list li:nth-child(5) .ui-accordian-tab { background: #e27a00; }
 
+.ui-accordian-tab-list li:nth-child(1) .ui-accordian-tab:hover { background: #1392a3; }
+.ui-accordian-tab-list li:nth-child(2) .ui-accordian-tab:hover { background: #139460; }
+.ui-accordian-tab-list li:nth-child(3) .ui-accordian-tab:hover { background: #0c5d59; }
+.ui-accordian-tab-list li:nth-child(4) .ui-accordian-tab:hover { background: #c19c06; }
+.ui-accordian-tab-list li:nth-child(5) .ui-accordian-tab:hover { background: #994903; }
+
 .ui-accordian-content {
-  padding: 1.4em 1em;
+  overflow: auto;
+  height: 0;
   background: #fff;
   color: #737171;
+}
+
+.ui-accordian-content p {
+  margin: 1.4em 1em;
+}
+
+.ui-accordian-tab-list li.active-accordian .ui-accordian-content {
+  height: 8rem;
 }
 
 /**
@@ -75,6 +105,12 @@ p {
  * 상태 디자인
  * ----------------------------- */
 .ui-accordian-tab-list .active-accordian {
+  border-right: 5px solid transparent;
+}
+
+.ui-accordian-tab:focus {
+  z-index: 100;
+  outline: 6px solid #ffff40;
 }
 
 .ui-accordian-tab-list li.active-accordian .ui-accordian-tab {
@@ -86,22 +122,26 @@ p {
 .ui-accordian-tab-list li.active-accordian .ui-accordian-tab::after {
   background: currentColor;
 }
+.ui-accordian-tab-list li.active-accordian .ui-accordian-tab::before {
+  transform: rotate(90deg);
+  color: transparent;
+}
 .ui-accordian-tab-list li.active-accordian .ui-accordian-tab::after {
   transform: rotate(0deg);
 }
 
 /* accordian tab 1 */
-.ui-accordian-tab-list li.active-accordian:nth-child(1) { border-right: 5px solid #02cade; }
+.ui-accordian-tab-list li.active-accordian:nth-child(1) { border-right-color: #02cade; }
 .ui-accordian-tab-list li.active-accordian:nth-child(1) .ui-accordian-tab { color: #02cade; }
 /* accordian tab 2 */
-.ui-accordian-tab-list li.active-accordian:nth-child(2) { border-right: 5px solid #00d99a; }
+.ui-accordian-tab-list li.active-accordian:nth-child(2) { border-right-color: #00d99a; }
 .ui-accordian-tab-list li.active-accordian:nth-child(2) .ui-accordian-tab { color: #00d99a; }
 /* accordian tab 3 */
-.ui-accordian-tab-list li.active-accordian:nth-child(3) { border-right: 5px solid #019490; }
+.ui-accordian-tab-list li.active-accordian:nth-child(3) { border-right-color: #019490; }
 .ui-accordian-tab-list li.active-accordian:nth-child(3) .ui-accordian-tab { color: #019490; }
 /* accordian tab 4 */
-.ui-accordian-tab-list li.active-accordian:nth-child(4) { border-right: 5px solid #f4ca00; }
+.ui-accordian-tab-list li.active-accordian:nth-child(4) { border-right-color: #f4ca00; }
 .ui-accordian-tab-list li.active-accordian:nth-child(4) .ui-accordian-tab { color: #f4ca00; }
 /* accordian tab 5 */
-.ui-accordian-tab-list li.active-accordian:nth-child(5) { border-right: 5px solid #e27a00; }
+.ui-accordian-tab-list li.active-accordian:nth-child(5) { border-right-color: #e27a00; }
 .ui-accordian-tab-list li.active-accordian:nth-child(5) .ui-accordian-tab { color: #e27a00; }
