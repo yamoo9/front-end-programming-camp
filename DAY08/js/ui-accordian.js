@@ -22,12 +22,10 @@ $acc_buttons.click(function() {
   // 나의 부모님의 형제 분들에게서 활성화 클래스를 제거한다.
   $parent.siblings('.active-accordian').removeClass('active-accordian');
   // 나의 부모에게는 활성화 클래스 속성을 추가한다.
-  // $parent.toggleClass('active-accordian');
-  if ( !$parent.hasClass('active-accordian') ) {
-    $parent.addClass('active-accordian');
-    // $(this).next().slideDown();
-  } else {
-    $parent.removeClass('active-accordian');
-    // $(this).next().slideUp();
-  }
+  $parent.toggleClass('active-accordian');
+  // if ( !$parent.hasClass('active-accordian') ) {
+  //   $parent.addClass('active-accordian');
+  // } else {
+  //   $parent.removeClass('active-accordian');
+  // }
 });
