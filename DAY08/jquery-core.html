@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery Core</title>
+  <style>
+    body {
+      margin: 4rem 10rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      padding-bottom: 0.4em;
+      border-bottom: 1px solid #cecece;
+      margin-bottom: 0.4em;
+    }
+    table {
+      border-collapse: collpase;
+      border-spacing: 0;
+      border-top: 3px solid #888;
+      border-bottom: 3px solid #888;
+    }
+    caption {
+      position: absolute;
+      left: 100%;
+    }
+    th, td {
+      padding: 1em 1.4em;
+    }
+    th {
+      border-bottom: 2px solid #aaa;
+    }
+    td {
+      border-bottom: 1px solid #dedede;
+    }
+  </style>
+  <script>
+    // 다른 라이브러리 (예)
+    var $ = {
+      "name": 'yamoo9 Library'
+    };
+    // console.log($);
+  </script>
+  <script src="../Resources/jquery-3.1.0.min.js"></script>
+  <!-- CDN을 사용하여 jQuery 로드하기!
+  ※ 단, 로컬 테스팅 환경에서는 로컬 파일을 사용하는 것이 속도 면에서 좋다. -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+  <script src="about-jquery-core.js"></script>
+</head>
+<body>
+
+  <h1>jQuery Loading...</h1>
+
+  <!-- ul>li{item $}*5 -->
+  <ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+  </ul>
+
+  <table id="demo-table">
+    <caption>DEMO Table</caption>
+    <tr>
+      <th scope="col">header cell</th>
+      <th scope="col">header cell</th>
+      <th scope="col">header cell</th>
+      <th scope="col">header cell</th>
+    </tr>
+    <tr>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+    </tr>
+    <tr>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+    </tr>
+    <tr>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+    </tr>
+    <tr>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+      <td>content cell</td>
+    </tr>
+  </table>
+
+</body>
+</html>
