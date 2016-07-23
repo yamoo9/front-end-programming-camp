@@ -36,6 +36,9 @@
     td {
       border-bottom: 1px solid #dedede;
     }
+    .selected {
+      background: #ff0;
+    }
   </style>
   <script>
     // 다른 라이브러리 (예)
@@ -55,11 +58,11 @@
   <h1>jQuery Loading...</h1>
 
   <!-- ul>li{item $}*5 -->
-  <ul>
+  <ul class="item-list">
     <li>item 1</li>
-    <li>item 2</li>
+    <li class="item-2nd">item 2</li>
     <li>item 3</li>
-    <li>item 4</li>
+    <li><a href="http://jquery.com/">item 4</a></li>
     <li>item 5</li>
   </ul>
 
@@ -69,17 +72,17 @@
       <th scope="col">header cell</th>
       <th scope="col">header cell</th>
       <th scope="col">header cell</th>
-      <th scope="col">header cell</th>
+      <th class="last-header-cell" scope="col">header cell</th>
     </tr>
     <tr>
       <td>content cell</td>
-      <td>content cell</td>
+      <td title="this is content cell">content cell</td>
       <td>content cell</td>
       <td>content cell</td>
     </tr>
     <tr>
       <td>content cell</td>
-      <td>content cell</td>
+      <td data-title="show me the money">content cell</td>
       <td>content cell</td>
       <td>content cell</td>
     </tr>
