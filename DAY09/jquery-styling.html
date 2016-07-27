@@ -13,7 +13,7 @@
       flex-flow: wrap;
     }
     .child {
-      flex: 1 0 200px;
+      flex: 1 0 300px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,6 +24,30 @@
     .el-2 { background: #8a63bb; }
     .el-3 { background: #b862bb; }
     .el-4 { background: #b9656b; }
+
+    /**
+     * --------------------------------
+     * .zebra-table
+     * ----------------------------- */
+    .zebra-table {
+      border-collapse: collapse;
+      margin-top: 3rem;
+      margin-left: auto;
+      margin-right: auto;
+      border-top: 1px solid #dfdfdf;
+      border-bottom: 1px solid #dfdfdf;
+    }
+    .zebra-table caption {
+      /*position: absolute;
+      left: -99999em;*/
+    }
+    .zebra-table th, .zebra-table td {
+      padding: 1em 1.3em;
+    }
+    .zebra-table th {border-bottom: 1px solid #dfdfdf;}
+    .zebra-table td {border-top: 1px solid #dfdfdf;}
+
+    .zebra-bg { background: #ff0; }
   </style>
   <script src="../Resources/jquery-3.1.0.min.js"></script>
 </head>
@@ -37,8 +61,175 @@
     <div class="child box el-4">box 04</div>
   </div>
 
-<script>
+  <table class="zebra-table">
+    <caption>Table Title</caption>
+    <tr>
+      <!-- th[scope="col"]{Table Cell Header $}*5 -->
+      <th scope="col">Table Cell Header 1</th>
+      <th scope="col">Table Cell Header 2</th>
+      <th scope="col">Table Cell Header 3</th>
+      <th scope="col">Table Cell Header 4</th>
+      <th scope="col">Table Cell Header 5</th>
+    </tr>
+    <!-- tr*8>td{Table Cell Data $$}*5 -->
+    <tr class="show">
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+    <tr>
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+    <tr class="display">
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+    <tr>
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+    <tr>
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+    <tr>
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+    <tr>
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+    <tr>
+      <td>Table Cell Data 01</td>
+      <td>Table Cell Data 02</td>
+      <td>Table Cell Data 03</td>
+      <td>Table Cell Data 04</td>
+      <td>Table Cell Data 05</td>
+    </tr>
+  </table>
 
+<script>
+// 문서가 준비가 된 이후에 코드가 실행
+// 문서에서 제어할 대상 객체를 변수에 참조
+// IIFE(즉시 실행 함수) 패턴
+// 모듈(외부와 단절된 독립된 공간을 형성)을 구현
+
+// 전역 변수(어디서나 접근이 가능한 변수)
+
+(function(){
+  // 별도의 지역을 생성하여 타인의 코드와 충돌이 나는 것을 방지하는 목적으로
+  // 오늘 날 이와 같은 디자인(설계) 패턴이 즐겨 사용된다.
+  // var me = 'IIFE';
+  var $childs = $('.child');
+  // console.log($childs.length);
+  // console.log('즉시 실행 함수', me);
+  // console.log('$childs', $childs);
+  // jQuery 팩토리 함수를 통해 수집된 $childs 변수에는 jQuery 객체가 참조되어 있다.
+  // 참조된 jQUery 객체는 jQuery만의 독특한 메소드를 사용할 수 있다.
+  // 이벤트 구문을 작성(이벤트에 핸들러를 바인딩)
+  // 대상.이벤트(함수)
+  // for (var i = 0; i < $childs.length; i++) {
+  //   var get_bg = $($childs[i]).css('background-color');
+  //   // console.log(get_bg);
+  // }
+
+  // var $favorites = $(책, 모니터, 햄스터, 공룡);
+  // $favorites.length; // 4
+  // $favorites.each(function(order, element){
+  //  order // 0, 1, 2, 3
+  //  element // 책, 모니터, 햄스터, 공룡
+  // });
+
+  // $childs를 반복 순환하여 각각 배경색을 original-color 속성에 기억해둔다.
+  // $childs.each(function(index) {
+  //   // console.log(index, el);
+  //   var org_color = $(this).css('background-color');
+  //   $(this).data('original-color', org_color);
+  // });
+
+  // $childs.each(function(index) {
+  //   console.log( $(this).data('original-color') );
+  // });
+
+
+
+  $childs.mouseenter(function() {
+    // Native Code
+    // this.style.outline = '3px solid #f9c9de';
+    // this.style.backgroundColor = '#74f11b';
+    // this.style.color = '#183208';
+    // this.style.letterSpacing = '0.2em';
+    // jQuery Code
+    // $(this)
+    //   .css('outline', '10px solid #ff0')
+    //   .css('background-color', '#74f11b')
+    //   .css('color', '#183208')
+    //   .css('letter-spacing', '0.2em');
+  });
+  $childs.mouseleave(function() {
+    var original_color = $(this).data('original-color');
+    $(this)
+      .css({
+        'outline': 'none',
+        'background-color': original_color,
+        'color': '#fff',
+        'letter-spacing': 0
+      });
+
+      // .css('outline', 'none')
+      // .css('background-color', original_color)
+      // .css('color', '#fff')
+      // .css('letter-spacing', 0);
+  });
+
+
+  var $zebra_table = $('.zebra-table');
+  var $zebra_tr = $zebra_table.find('tr');
+
+  // $zebra_tr.addClass('zebra-bg');
+  $zebra_tr.addClass(function(index, name){
+    if(index % 2 === 1) {
+      return 'zebra-bg';
+    }
+  });
+
+  $zebra_tr.removeClass(function(index, name) {
+    var name_arr = name.split(' ');
+    if( name_arr.length > 1) {
+      for( var i=0, l=name_arr.length; i<l; i++) {
+        if(name_arr[i] !== 'zebra-bg') {
+          console.log(name_arr[i]);
+          return name_arr[i];
+        }
+      }
+    }
+  });
+
+}());
+
+// console.log(me); // 접근이 불가능
 </script>
 </body>
 </html>
