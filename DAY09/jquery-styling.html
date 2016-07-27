@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery 스타일링 .css(), class 속성 관련 메소드 활용</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    .parent {
+      display: flex;
+      flex-flow: wrap;
+    }
+    .child {
+      flex: 1 0 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      color: #fff;
+    }
+    .el-1 { background: #7b9fc7; }
+    .el-2 { background: #8a63bb; }
+    .el-3 { background: #b862bb; }
+    .el-4 { background: #b9656b; }
+  </style>
+  <script src="../Resources/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+
+  <!-- .parent>.child.box.el-${box $$}*4 -->
+  <div class="parent">
+    <div class="child box el-1">box 01</div>
+    <div class="child box el-2">box 02</div>
+    <div class="child box el-3">box 03</div>
+    <div class="child box el-4">box 04</div>
+  </div>
+
+<script>
+
+</script>
+</body>
+</html>
