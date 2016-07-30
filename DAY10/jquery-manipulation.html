@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>jQuery Dimension</title>
+  <!-- CDN 데이터 호출 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- 네트워크 불안정으로 CDN 데이터 호출에 실패했을 경우, 로컬 jQuery 대체 방법 -->
+  <script>
+    // 방법 1.
+    if(!this.jQuery) {
+      var jQuery_loader = document.createElement('script');
+      jQuery_loader.setAttribute('src', '../Resources/jquery-3.1.0.min.js');
+      document.head.appendChild(jQuery_loader);
+    }
+
+    // 방법 2.
+    this.jQuery || document.write('<script src="../Resources/jquery-3.1.0.min.js"><\/script>');
+    // !this.jQuery && document.write('<script src="../Resources/jquery-3.1.0.min.js"><\/script>');
+  </script>
+</head>
+<body>
+
+<script>
+  // 로컬 jQuery 로드 확인
+  console.log(!!this.jQuery);
+</script>
+</body>
+</html>
