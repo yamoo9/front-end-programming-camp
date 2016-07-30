@@ -12,10 +12,14 @@
       box-sizing: inherit;
     }
     body {
-      margin: 4rem 10rem;
+      margin: 4rem 15rem;
+    }
+    .page {
+      margin-top: 100px;
+      margin-bottom: 200px;
     }
     .page-main {
-      width: 945px;
+      /*width: 945px;*/
       border: 10px solid #333;
       padding: 0 20px;
     }
@@ -25,6 +29,53 @@
       white-space: nowrap;
       text-overflow: ellipsis;
     }
+    /*.primary-navigation {
+
+    }*/
+    .primary-navigation {
+      /*position: absolute;*/
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .primary-navigation ul {
+      display: flex;
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      height: 70px;
+    }
+
+    .primary-navigation li {
+      flex: 1 0 200px;
+    }
+    .primary-navigation a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #fff;
+    }
+    .primary-navigation a:focus {
+      outline: none;
+    }
+    .primary-navigation li:nth-child(1) a { background: #fc4a54; }
+    .primary-navigation li:nth-child(2) a { background: #be22fb; }
+    .primary-navigation li:nth-child(3) a { background: #3fc7fb; }
+    .primary-navigation li:nth-child(4) a { background: #fa9b3a; }
+
+    .primary-navigation li:nth-child(1):hover a,
+    .primary-navigation li:nth-child(1) a:focus { background: #7f1c25; }
+    .primary-navigation li:nth-child(2):hover a,
+    .primary-navigation li:nth-child(2) a:focus { background: #5c0082; }
+    .primary-navigation li:nth-child(3):hover a,
+    .primary-navigation li:nth-child(3) a:focus { background: #1d5e7c; }
+    .primary-navigation li:nth-child(4):hover a,
+    .primary-navigation li:nth-child(4) a:focus { background: #834b1a; }
   </style>
   <!-- CDN 데이터 호출 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -45,6 +96,15 @@
 <body>
 
   <!-- .page>.page-banner>h1.brand{jQuery is Awesome!}+p.slogan{Write Less. Do More.}^main.page-main>article.main-article*4>h2.article-headline{jQuery Feature $$}+p*4>loremen60 -->
+
+  <nav class="primary-navigation">
+    <ul>
+      <li><a href="#jquery-feature-01">jQuery Feature 01</a></li>
+      <li><a href="#jquery-feature-02">jQuery Feature 02</a></li>
+      <li><a href="#jquery-feature-03">jQuery Feature 03</a></li>
+      <li><a href="#jquery-feature-04">jQuery Feature 04</a></li>
+    </ul>
+  </nav>
 
   <div class="page">
     <div class="page-banner">
@@ -105,6 +165,7 @@
   page_main_w = $page_main.width();       // content-box 까지의 폭
   page_main_iw = $page_main.innerWidth(); // padding-box 까지의 폭
   page_main_ow = $page_main.outerWidth(); // border-box 까지의 폭
+  page_main_ow = $page_main.outerWidth(true); // margin-box 까지의 폭
 
   // console.log('$page_main.width():', page_main_w);
   // console.log('$page_main.innerWidth():', page_main_iw);
@@ -159,6 +220,12 @@
     }
     isFold = !isFold;
   });
+
+  /**
+   * --------------------------------
+   * Navigation Design: jQuery Scroll Animation
+   */
+  var $primary_nav = $('.primary-navigation');
 
 </script>
 </body>
