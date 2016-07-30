@@ -19,6 +19,12 @@
       border: 10px solid #333;
       padding: 0 20px;
     }
+    .ellipsis {
+      overflow: hidden;
+      max-width: 500px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   </style>
   <!-- CDN 데이터 호출 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -43,7 +49,8 @@
   <div class="page">
     <div class="page-banner">
       <h1 class="brand">jQuery is Awesome!</h1>
-      <p class="slogan">Write Less. Do More.</p>
+      <button type="button" class="toggle-fold-expand">Fold Slogan</button>
+      <p class="slogan">Write Less. Do More. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi obcaecati, magni corporis quibusdam. Impedit esse quisquam aliquam fugiat voluptatibus illo nam dignissimos molestiae tempora magnam cumque vitae expedita aspernatur odio, ex ullam consequuntur dolorum, reprehenderit! Molestiae quae nulla, dolore laboriosam voluptate, perspiciatis dolorum sit neque soluta quasi omnis doloribus sapiente.</p>
     </div>
     <main class="page-main">
       <article class="main-article">
@@ -85,11 +92,11 @@
   var $document = $(document);
   // jQuery 수치 확인하는 메소드 활용
   // 가로 폭
-  console.log('$window.width():', $window.width());
-  console.log('$window.height():', $window.height());
+  // console.log('$window.width():', $window.width());
+  // console.log('$window.height():', $window.height());
 
-  console.log('$document.width():', $document.width());
-  console.log('$document.height():', $document.height());
+  // console.log('$document.width():', $document.width());
+  // console.log('$document.height():', $document.height());
 
   var $page_main = $('.page-main');
 
@@ -99,9 +106,59 @@
   page_main_iw = $page_main.innerWidth(); // padding-box 까지의 폭
   page_main_ow = $page_main.outerWidth(); // border-box 까지의 폭
 
-  console.log('$page_main.width():', page_main_w);
-  console.log('$page_main.innerWidth():', page_main_iw);
-  console.log('$page_main.outerWidth():', page_main_ow);
+  // console.log('$page_main.width():', page_main_w);
+  // console.log('$page_main.innerWidth():', page_main_iw);
+  // console.log('$page_main.outerWidth():', page_main_ow);
+
+  /**
+   * --------------------------------
+   * 버튼 클릭 이벤트 핸들링
+   * 제어 1. 슬로건을 생략
+   * 제어 2. 버튼의 텍스트를 변경
+   */
+
+  // STEP 1. 문서에서 대상을 찾아 jQuery 객체 화
+  var $toggle_btn = $('.toggle-fold-expand');
+  var $slogan = $('.slogan');
+
+  // console.log('$toggle_btn:', $toggle_btn);
+  // console.log('$slogan:', $slogan);
+
+  // STEP 2. 버튼 객체의 클릭 이벤트에 핸들러(function) 연결
+  // $toggle_btn.on('click', function() {
+  //   console.log('clicked button');
+  // });
+  // ※ 아래 단축(Alias) 이벤트 메소드 보다는 위의 방식을 사용하길 권장!
+  // $toggle_btn.click(function() {});
+
+  // STEP 3. 버튼을 클릭했을 때 수행할 일을 프로그래밍
+  var isFold = true;
+  $toggle_btn.on('click', function() {
+    // 제어 1. 슬로건을 생략
+    $slogan.toggleClass('ellipsis');
+    // 제어 2. 버튼의 텍스트를 변경
+    // 네이티브 방식
+    // var text = this.textContent, changed_text;
+    // if ( text.indexOf('Fold') > -1 ) {
+    //   changed_text = text.replace(/Fold/, 'Expand');
+    // } else {
+    //   changed_text = text.replace(/Expand/, 'Fold');
+    // }
+    // this.textContent = changed_text;
+    // jQuery 방식
+    // console.log($(this).filter(':contains("Fold")').length);
+    // if ( $(this).filter(':contains("Fold")').length ) {
+    var $this = $(this);
+    if (isFold) {
+      $this.text('Expand Slogan');
+      // isFold = false;
+      // isFold = !isFold;
+    } else {
+      $this.text('Fold Slogan');
+      // isFold = true;
+    }
+    isFold = !isFold;
+  });
 
 </script>
 </body>
