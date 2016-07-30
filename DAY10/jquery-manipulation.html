@@ -5,11 +5,16 @@
   <meta charset="UTF-8">
   <title>jQuery Dimension</title>
   <style>
+    html {
+      box-sizing: border-box;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
     body {
       margin: 4rem 10rem;
     }
     .page-main {
-      box-sizing: border-box;
       width: 945px;
       border: 10px solid #333;
       padding: 0 20px;
@@ -90,7 +95,7 @@
 
   var page_main_w, page_main_iw, page_main_ow;
 
-  page_main_w = $page_main.width(); // content-box 까지의 폭
+  page_main_w = $page_main.width();       // content-box 까지의 폭
   page_main_iw = $page_main.innerWidth(); // padding-box 까지의 폭
   page_main_ow = $page_main.outerWidth(); // border-box 까지의 폭
 
