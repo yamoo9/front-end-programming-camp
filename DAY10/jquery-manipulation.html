@@ -63,10 +63,10 @@
     .primary-navigation a:focus {
       outline: none;
     }
-    .primary-navigation li:nth-child(1) a { background: #fc4a54; }
-    .primary-navigation li:nth-child(2) a { background: #be22fb; }
-    .primary-navigation li:nth-child(3) a { background: #3fc7fb; }
-    .primary-navigation li:nth-child(4) a { background: #fa9b3a; }
+    .primary-navigation li:nth-child(1) a { background: hsla(357, 97%, 64%, 0.85); }
+    .primary-navigation li:nth-child(2) a { background: hsla(283, 96%, 56%, 0.85); }
+    .primary-navigation li:nth-child(3) a { background: hsla(197, 96%, 62%, 0.85); }
+    .primary-navigation li:nth-child(4) a { background: hsla(30, 95%, 60%, 0.85); }
 
     .primary-navigation li:nth-child(1):hover a,
     .primary-navigation li:nth-child(1) a:focus { background: #7f1c25; }
@@ -78,20 +78,11 @@
     .primary-navigation li:nth-child(4) a:focus { background: #834b1a; }
   </style>
   <!-- CDN 데이터 호출 -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+  <!-- jQuery Easing 플러그인 호출 -->
   <!-- 네트워크 불안정으로 CDN 데이터 호출에 실패했을 경우, 로컬 jQuery 대체 방법 -->
-  <script>
-    // 방법 1.
-    if(!this.jQuery) {
-      var jQuery_loader = document.createElement('script');
-      jQuery_loader.setAttribute('src', '../Resources/jquery-3.1.0.min.js');
-      document.head.appendChild(jQuery_loader);
-    }
-
-    // 방법 2.
-    this.jQuery || document.write('<script src="../Resources/jquery-3.1.0.min.js"><\/script>');
-    // !this.jQuery && document.write('<script src="../Resources/jquery-3.1.0.min.js"><\/script>');
-  </script>
+  <script src="../Resources/jquery-3.1.0.min.js"></script>
+  <script src="../Resources/jquery.easing.1.3.js"></script>
 </head>
 <body>
 
@@ -225,11 +216,30 @@
    * --------------------------------
    * Navigation Design: jQuery Scroll Animation
    */
-  var $primary_nav = $('.primary-navigation');
+  var location           = window.location;
+  var $primary_nav       = $('.primary-navigation');
   var $promary_nav_links = $('a', $primary_nav);
+  var $document          = $('html, body');
+  // 설정 변수
+  var nav_height         = $primary_nav.height();
+  var scrolled_gap       = 22;
 
-  $promary_nav_links.on('click', function() {
-    console.log(this);
+  $promary_nav_links.on('click', function(event) {
+    // 브라우저 기본 처리를 차단
+    event.preventDefault();
+    // this(사용자가 클릭한 <a>)로부터 목적지에 해당되는 요소의 id 속성 값을 참조.
+    var target_id = this.getAttribute('href');
+    // 목적지 요소를 jQuery 객체 화.
+    var $target = $(target_id);
+    var target_top = $target.offset().top - nav_height - scrolled_gap;
+
+    // $document 애니메이션
+    $document.animate({'scrollTop': target_top}, 1000, 'easeOutBack', function() {
+      // location.hash = target_id;
+    });
+    location.hash = target_id;
+    // ※ jQuery v1.x.x 대에서는 아래와 같이 stop() 메소드를 animate() 앞에 넣어준다.
+    // $document.stop().animate({'scrollTop': target_top}, 1000, 'easeOutBack');
   });
 
 </script>
