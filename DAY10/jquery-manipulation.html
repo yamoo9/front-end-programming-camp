@@ -216,7 +216,7 @@
    * --------------------------------
    * Navigation Design: jQuery Scroll Animation
    */
-  var location           = window.location;
+  // var location           = window.location;
   var $primary_nav       = $('.primary-navigation');
   var $promary_nav_links = $('a', $primary_nav);
   var $document          = $('html, body');
@@ -234,6 +234,7 @@
     var target_top = $target.offset().top - nav_height - scrolled_gap;
 
     // $document 애니메이션
+    // 이징 움직임 그래프 확인(http://easings.net/)
     $document.animate({'scrollTop': target_top}, 1000, 'easeOutBack', function() {
       // location.hash = target_id;
     });

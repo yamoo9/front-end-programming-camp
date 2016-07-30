@@ -1,0 +1,101 @@
+@charset "utf-8";
+/**
+ * --------------------------------
+ * 기본 스타일
+ * ----------------------------- */
+html {
+  overflow-y: scroll;
+  /* 폰트 부드럽게 설정 */
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+body {
+  margin: 0;
+  font: 14px/1.5 "Open Sans", sans-serif;
+  font-weight: 300;
+}
+
+/**
+ * --------------------------------
+ * .page-header
+ * ----------------------------- */
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+}
+
+.page-header h1, a {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.15em;
+}
+
+.page-header a {
+  text-decoration: none;
+  color: #3a3a39;
+}
+
+.page-header a:hover,
+.page-header a:focus {
+  color: #0c0c0c;
+}
+
+/**
+ * --------------------------------
+ * 브랜드
+ * ----------------------------- */
+.page-header .brand {
+  float: left;
+  margin-top: 30px;
+  margin-bottom: 0;
+  margin-left: 30px;
+}
+/**
+ * --------------------------------
+ * 내비게이션 공통
+ */
+.page-header [class*="-navigation"] ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.page-header [class*="-navigation"] ul::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.page-header [class*="-navigation"] li {
+  float: left;
+  margin-right: 40px;
+}
+.page-header [class*="-navigation"] a {
+  font-weight: 600;
+  vertical-align: top;
+}
+/**
+ * --------------------------------
+ * 내비게이션 개별
+ */
+.page-header .primary-navigation {
+  float: left;
+  margin-top: 29px;
+  margin-left: 50px;
+}
+
+.page-header .secondary-navigation {
+  float: right;
+}
+
+/**
+ * --------------------------------
+ * 페이지 메인
+ * ----------------------------- */
+.page-main {
+  padding-bottom: 54.375%;
+  background: url("../images/wooden-factory-stool.jpeg") no-repeat center top;
+  background-size: cover;
+}
